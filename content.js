@@ -23,7 +23,10 @@ function toHttps(url) { return url ? url.replace(/^http:\/\//i, 'https://') : ur
 
 function getWikiSlug(rawName) {
     let cleanName = rawName.replace(/\s+x\d+$/i, "").trim();
-    cleanName = cleanName.replace(/\s*\((Class|Armor|Helm|Cape|Weapon|Pet|Misc|Necklace|Sword|Dagger|Axe|Mace|Polearm|Staff|Wand|Bow|Gun|0 AC|AC|Legend|Non-Legend|Merge|Rare|VIP|Monster|IoDA)\)/gi, "").trim();
+    // PERUBAHAN: Hapus (IoDA) dari regex? TIDAK! Biarkan (IoDA) tetap ada.
+    // Regex di bawah ini hanya menghapus suffix kategori, BUKAN (IoDA)
+    // (IoDA) tidak ada dalam daftar, jadi akan tetap dipertahankan!
+    cleanName = cleanName.replace(/\s*\((Class|Armor|Helm|Cape|Weapon|Pet|Misc|Necklace|Sword|Dagger|Axe|Mace|Polearm|Staff|Wand|Bow|Gun|0 AC|AC|Legend|Non-Legend|Merge|Rare|VIP|Monster)\)/gi, "").trim();
     let slug = cleanName.toLowerCase();
     slug = slug.replace(/'/g, "-").replace(/\s+/g, "-");
     slug = slug.replace(/[^a-z0-9\-]/g, "").replace(/-+/g, "-");
@@ -169,7 +172,6 @@ async function replaceContent() {
     
     const { male, female, wikiHasTabs } = finalImages;
     
-    // Ambil deskripsi untuk mengecek apakah ini armor/class
     let descriptionText = "";
     let temp = h1.nextSibling;
     while (temp) {
@@ -177,7 +179,6 @@ async function replaceContent() {
         temp = temp.nextSibling;
     }
     
-    // Cek apakah ini Armor atau Class (dari nama atau deskripsi)
     const lowerName = itemName.toLowerCase();
     const lowerDesc = descriptionText.toLowerCase();
     const isArmorOrClass = lowerName.includes("armor") || lowerName.includes("class") || 
