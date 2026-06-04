@@ -1,3 +1,8 @@
+<p align="center">
+  <a href="https://github.com/darkero27/AQW-IoDA-Preview/archive/refs/heads/main.zip"><strong>Download ZIP</strong></a> · 
+  <a href="#installation"><strong>Install Guide</strong></a>
+</p>
+
 # AQW IoDA Preview
 
 A Chrome extension that displays item images directly on the AQW IoDA page.
