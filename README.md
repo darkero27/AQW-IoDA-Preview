@@ -2,6 +2,12 @@
 
 A Chrome extension that displays item images directly on the AQW IoDA page.
 
+## Screenshots
+
+![Armor/Classes](IODA2.png)
+
+![Non Gender Item](IODA1.png)
+
 ## Features
 
 - Shows item image below the item name
@@ -29,10 +35,6 @@ A Chrome extension that displays item images directly on the AQW IoDA page.
 
 - `host_permissions`: Access to `account.aq.com` and `aqwwiki.wikidot.com`
 - No data collection, no tracking
-
-## License
-
-MIT
 
 ## Author
 
